@@ -1,0 +1,57 @@
+import Link from "next/link";
+import { business, mainNavigation } from "@/lib/site-data";
+import { OpenStatus } from "@/components/site/open-status";
+
+export function SiteHeader() {
+  return (
+    <>
+      <a className="skip-link" href="#main-content">
+        Skip to main content
+      </a>
+      <div className="utility-bar" aria-label="Quick information">
+        <div className="utility-bar__inner">
+          <OpenStatus />
+          <span className="utility-bar__station">Godalming Station</span>
+          <a href={`tel:${business.phoneHref}`}>Call {business.phoneDisplay}</a>
+        </div>
+      </div>
+      <header className="site-header">
+        <div className="site-header__inner">
+          <Link className="brand" href="/" aria-label="Daisy Sandwiches home">
+            {/* The supplied logo is already pre-optimised and served at its exact display size. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/daisy-logo.webp"
+              width="260"
+              height="140"
+              alt="Daisy Sandwiches"
+            />
+          </Link>
+          <nav className="desktop-nav" aria-label="Main navigation">
+            {mainNavigation.map((item) => (
+              <Link key={item.href} href={item.href}>
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+          <Link
+            className="button button--primary header-cta"
+            href="/catering#enquiry"
+          >
+            Catering enquiry
+          </Link>
+          <details className="mobile-nav">
+            <summary>Menu</summary>
+            <nav aria-label="Mobile navigation">
+              {mainNavigation.map((item) => (
+                <Link key={item.href} href={item.href}>
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          </details>
+        </div>
+      </header>
+    </>
+  );
+}
