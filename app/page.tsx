@@ -1,8 +1,8 @@
-import Link from "next/link";
 import { ResponsivePicture } from "@/components/site/responsive-picture";
 import { SiteFrame } from "@/components/site/site-frame";
 import { LocationBlock } from "@/components/site/location-block";
 import { foodCategories, reviews } from "@/lib/site-data";
+import { siteHref } from "@/lib/public-path";
 
 export default function Home() {
   return (
@@ -19,12 +19,15 @@ export default function Home() {
             family-run shop at Godalming Station.
           </p>
           <div className="button-row">
-            <Link className="button button--primary" href="/menu">
+            <a className="button button--primary" href={siteHref("/menu")}>
               View the menu
-            </Link>
-            <Link className="button button--secondary" href="/catering">
+            </a>
+            <a
+              className="button button--secondary"
+              href={siteHref("/catering")}
+            >
               Catering &amp; events
-            </Link>
+            </a>
           </div>
           <ul className="trust-line" aria-label="Daisy highlights">
             <li>Made to order</li>
@@ -73,9 +76,9 @@ export default function Home() {
               <p>{category.copy}</p>
             </article>
           ))}
-          <Link className="text-link" href="/menu">
+          <a className="text-link" href={siteHref("/menu")}>
             See the full menu <span aria-hidden="true">→</span>
-          </Link>
+          </a>
         </div>
       </section>
 
@@ -98,9 +101,12 @@ export default function Home() {
             Daisy offers external catering for office meetings and special
             occasions, with menus planned around what you need.
           </p>
-          <Link className="button button--primary" href="/catering">
+          <a
+            className="button button--primary"
+            href={siteHref("/catering")}
+          >
             Plan your catering
-          </Link>
+          </a>
         </div>
       </section>
 
@@ -113,9 +119,12 @@ export default function Home() {
             sandwiches, toasties, homemade cakes and savouries to community
             events and private hire.
           </p>
-          <Link className="button button--primary" href="/trailer">
+          <a
+            className="button button--primary"
+            href={siteHref("/trailer")}
+          >
             Trailer enquiries
-          </Link>
+          </a>
         </div>
         <ResponsivePicture
           baseName="daisy-trailer"
@@ -155,9 +164,9 @@ export default function Home() {
             has grown without losing the straightforward, made-here character
             people know it for.
           </p>
-          <Link className="text-link" href="/about">
+          <a className="text-link" href={siteHref("/about")}>
             Read our story <span aria-hidden="true">→</span>
-          </Link>
+          </a>
         </div>
         <ResponsivePicture
           baseName="shop-window"

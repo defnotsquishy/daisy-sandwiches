@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ResponsivePicture } from "@/components/site/responsive-picture";
 import { SiteFrame } from "@/components/site/site-frame";
+import { siteHref } from "@/lib/public-path";
 
 export const metadata: Metadata = {
   title: "About",
@@ -73,15 +73,18 @@ export default function AboutPage() {
       <section className="about-next section-shell">
         <h2>Hungry now, planning ahead, or taking Daisy on the road?</h2>
         <div className="button-row">
-          <Link className="button button--primary" href="/menu">
+          <a className="button button--primary" href={siteHref("/menu")}>
             See the menu
-          </Link>
-          <Link className="button button--secondary" href="/catering">
+          </a>
+          <a
+            className="button button--secondary"
+            href={siteHref("/catering")}
+          >
             Explore catering
-          </Link>
-          <Link className="text-link" href="/trailer">
+          </a>
+          <a className="text-link" href={siteHref("/trailer")}>
             Meet the trailer <span aria-hidden="true">→</span>
-          </Link>
+          </a>
         </div>
       </section>
     </SiteFrame>

@@ -1,7 +1,6 @@
-import Link from "next/link";
 import { business, mainNavigation } from "@/lib/site-data";
 import { OpenStatus } from "@/components/site/open-status";
-import { publicAsset } from "@/lib/public-path";
+import { publicAsset, siteHref } from "@/lib/public-path";
 
 export function SiteHeader() {
   return (
@@ -18,7 +17,11 @@ export function SiteHeader() {
       </div>
       <header className="site-header">
         <div className="site-header__inner">
-          <Link className="brand" href="/" aria-label="Daisy Sandwiches home">
+          <a
+            className="brand"
+            href={siteHref("/")}
+            aria-label="Daisy Sandwiches home"
+          >
             {/* The supplied logo is already pre-optimised and served at its exact display size. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -27,27 +30,27 @@ export function SiteHeader() {
               height="140"
               alt="Daisy Sandwiches"
             />
-          </Link>
+          </a>
           <nav className="desktop-nav" aria-label="Main navigation">
             {mainNavigation.map((item) => (
-              <Link key={item.href} href={item.href}>
+              <a key={item.href} href={siteHref(item.href)}>
                 {item.label}
-              </Link>
+              </a>
             ))}
           </nav>
-          <Link
+          <a
             className="button button--primary header-cta"
-            href="/catering#enquiry"
+            href={siteHref("/catering#enquiry")}
           >
             Catering enquiry
-          </Link>
+          </a>
           <details className="mobile-nav">
             <summary>Menu</summary>
             <nav aria-label="Mobile navigation">
               {mainNavigation.map((item) => (
-                <Link key={item.href} href={item.href}>
+                <a key={item.href} href={siteHref(item.href)}>
                   {item.label}
-                </Link>
+                </a>
               ))}
             </nav>
           </details>

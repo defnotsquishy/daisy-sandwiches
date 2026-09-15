@@ -1,6 +1,6 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteFrame } from "@/components/site/site-frame";
+import { siteHref } from "@/lib/public-path";
 
 export const metadata: Metadata = {
   title: "Page not found",
@@ -17,12 +17,12 @@ export default function NotFound() {
           Try the menu, head back to the homepage, or contact Daisy directly.
         </p>
         <div className="button-row">
-          <Link className="button button--primary" href="/menu">
+          <a className="button button--primary" href={siteHref("/menu")}>
             View the menu
-          </Link>
-          <Link className="button button--secondary" href="/">
+          </a>
+          <a className="button button--secondary" href={siteHref("/")}>
             Go home
-          </Link>
+          </a>
         </div>
       </section>
     </SiteFrame>

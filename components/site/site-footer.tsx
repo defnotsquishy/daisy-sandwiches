@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { business, mainNavigation } from "@/lib/site-data";
+import { siteHref } from "@/lib/public-path";
 
 export function SiteFooter() {
   return (
@@ -33,9 +33,9 @@ export function SiteFooter() {
         <nav aria-label="Footer navigation">
           <h2>Explore</h2>
           {mainNavigation.map((item) => (
-            <Link key={item.href} href={item.href}>
+            <a key={item.href} href={siteHref(item.href)}>
               {item.label}
-            </Link>
+            </a>
           ))}
         </nav>
       </div>

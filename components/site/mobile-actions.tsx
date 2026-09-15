@@ -1,12 +1,12 @@
-import Link from "next/link";
 import { business } from "@/lib/site-data";
+import { siteHref } from "@/lib/public-path";
 
 export function MobileActions() {
   return (
     <nav className="mobile-actions" aria-label="Quick actions">
-      <Link href="/menu">Menu</Link>
+      <a href={siteHref("/menu")}>Menu</a>
       <a href={`tel:${business.phoneHref}`}>Call</a>
-      <Link href="/catering#enquiry">Catering</Link>
+      <a href={siteHref("/catering#enquiry")}>Catering</a>
     </nav>
   );
 }
