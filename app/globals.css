@@ -557,8 +557,12 @@ h1 {
   width: min(100%, var(--content-width));
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1.3fr 0.7fr;
-  gap: 2.5rem;
+  grid-template-columns:
+    minmax(12rem, 1.4fr)
+    minmax(9rem, 0.8fr)
+    minmax(19rem, 1.4fr)
+    minmax(8rem, 0.6fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
 }
 .site-footer h2 {
   margin: 0 0 0.75rem;
@@ -576,6 +580,17 @@ h1 {
 .site-footer a {
   width: fit-content;
   overflow-wrap: anywhere;
+}
+.site-footer__contact {
+  display: grid;
+  align-content: start;
+  gap: 0.15rem;
+  min-width: 0;
+}
+.site-footer__email {
+  white-space: nowrap;
+  font-size: clamp(0.88rem, 1.15vw, 1rem);
+  letter-spacing: -0.015em;
 }
 .footer-wordmark {
   margin: 0;
@@ -618,9 +633,9 @@ h1 {
 .not-found h1 {
   max-width: 11ch;
 }
-.page-intro > div > p:last-child {
+.page-intro h1 + p {
   max-width: 34rem;
-  margin-top: 1.5rem;
+  margin: clamp(2rem, 3vw, 2.75rem) 0 0;
   font-size: 1.18rem;
 }
 .page-intro picture {
@@ -1129,6 +1144,9 @@ h1 {
   .site-header__inner {
     grid-template-columns: auto 1fr;
   }
+  .site-footer__inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 @media (max-width: 48rem) {
   .utility-bar__station {
@@ -1244,9 +1262,6 @@ h1 {
   .hours-board {
     border-left: 0;
     border-top: var(--border);
-  }
-  .site-footer__inner {
-    grid-template-columns: 1fr 1fr;
   }
   .site-footer__base {
     display: grid;

@@ -20,10 +20,15 @@ export function SiteFooter() {
           </address>
           <a href={business.directionsUrl}>Get directions</a>
         </div>
-        <div>
+        <div className="site-footer__contact">
           <h2>Contact</h2>
           <a href={`tel:${business.phoneHref}`}>{business.phoneDisplay}</a>
-          <a href={`mailto:${business.email}`}>{business.email}</a>
+          <a
+            className="site-footer__email"
+            href={`mailto:${business.email}`}
+          >
+            {business.email}
+          </a>
         </div>
         <nav aria-label="Footer navigation">
           <h2>Explore</h2>
