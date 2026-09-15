@@ -1,3 +1,5 @@
+import { publicAsset } from "@/lib/public-path";
+
 type ResponsivePictureProps = {
   baseName: string;
   alt: string;
@@ -19,11 +21,11 @@ export function ResponsivePicture({
     <picture className={className}>
       <source
         type="image/webp"
-        srcSet={`/images/${baseName}-640.webp 640w, /images/${baseName}-1200.webp 1200w, /images/${baseName}-1800.webp 1800w`}
+        srcSet={`${publicAsset(`/images/${baseName}-640.webp`)} 640w, ${publicAsset(`/images/${baseName}-1200.webp`)} 1200w, ${publicAsset(`/images/${baseName}-1800.webp`)} 1800w`}
         sizes="(max-width: 48rem) 100vw, 56vw"
       />
       <img
-        src={`/images/${baseName}-1200.webp`}
+        src={publicAsset(`/images/${baseName}-1200.webp`)}
         alt={alt}
         width={width}
         height={height}

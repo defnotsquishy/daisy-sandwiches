@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { business, mainNavigation } from "@/lib/site-data";
 import { OpenStatus } from "@/components/site/open-status";
+import { publicAsset } from "@/lib/public-path";
 
 export function SiteHeader() {
   return (
@@ -21,7 +22,7 @@ export function SiteHeader() {
             {/* The supplied logo is already pre-optimised and served at its exact display size. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/daisy-logo.webp"
+              src={publicAsset("/images/daisy-logo.webp")}
               width="260"
               height="140"
               alt="Daisy Sandwiches"

@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
 const baseUrl = "https://daisy-sandwiches-godalming.nathanyu2010.chatgpt.site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
